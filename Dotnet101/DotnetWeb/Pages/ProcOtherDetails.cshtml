@@ -1,11 +1,16 @@
-﻿@page
-@model ProcOtherDetailsModel
+﻿@page "{id:int?}"
+@model DotnetWeb.Pages.ProcOtherDetailsModel
+@{
+    ViewData["Title"] = "Process Details";
+}
 
-
-<h1>@ViewData["Title"]</h1>
-
-<div>
-    <p><b>@Model.ProcessName</b> - ID: @Model.Proc.Id</p>
-    <p>Start Time: @Model.Proc.StartTime</p>
-    <p>Total Processor Time: @Model.Proc.TotalProcessorTime</p>
-</div>
+@if (Model.Proc != null)
+{
+    <h2>@Model.Proc.ProcessName</h2>
+    <p>ID: @Model.Proc.Id</p>
+    <p>Memory: @Model.Proc.WorkingSet64 bytes</p>
+}
+else
+{
+    <p>Process not found or already exited.</p>
+}
