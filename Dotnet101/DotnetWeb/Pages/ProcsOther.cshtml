@@ -5,9 +5,9 @@
 }
 <h1>@ViewData["Title"]</h1>
 
-@foreach (var proc in (System.Diagnostics.Process[])ViewData["procs"]!)
+@foreach (var Proc in (System.Diagnostics.Process[])ViewData["procs"]!)
 {
     <div>
-        <b>@proc.ProcessName</b> - ID: <a asp-page="/ProcOtherDetails" asp-route-id="@proc.Id">@proc.Id</a>
+        <b>@Proc.ProcessName</b> - ID: <a asp-page="/ProcOtherDetails" asp-route-id="@Proc.Id">@Proc.Id</a>
     </div>
 }
